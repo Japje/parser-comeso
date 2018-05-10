@@ -18,7 +18,8 @@ return [
             'type'      => 'ABUSE',
             'enabled'   => true,
             'fields'    => [
-                'Source-IP',
+                'IP',
+                'timestamp',
             ],
         ],
     ],
