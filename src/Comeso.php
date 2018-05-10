@@ -40,14 +40,16 @@ class Comeso extends Parser
 
                 // Build up the report
                 preg_match_all(
-                    '/([\w\-]+): (.*)[ ]*\r?\n/',
-                    $this->arfMail['report'],
+                    '/IP: (.*)[ ]*\r?\n/',
+                    $this->parsedMail->getMessageBody(),
                     $matches
                 );
+                //var_dump($matches[1]);
 
-                $report = array_combine($matches[1], $matches[2]);
-
-                $report['timestamp'] = time();
+                $report = [
+                    'IP' => $matches[1][0],
+                    'timestamp' => time(),
+                ];
 
                 // Sanity check
                 if ($this->hasRequiredFields($report) === true) {
@@ -64,7 +66,7 @@ class Comeso extends Parser
                     $incident->domain      = false;
                     $incident->class       = config("{$this->configBase}.feeds.{$this->feedName}.class");
                     $incident->type        = config("{$this->configBase}.feeds.{$this->feedName}.type");
-                    $incident->timestamp   = $report['timestamp']);
+                    $incident->timestamp   = $report['timestamp'];
                     $incident->information = json_encode($report);
 
                     $this->incidents[] = $incident;
@@ -72,7 +74,6 @@ class Comeso extends Parser
                 }
             }
         }
-        Log::info('japje : ' . json_encode($this->incidents);
         return $this->success();
     }
 }
