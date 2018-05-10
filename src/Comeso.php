@@ -5,6 +5,7 @@
 namespace AbuseIO\Parsers;
 
 use AbuseIO\Models\Incident;
+use Log;
 
 /**
  * Class Comeso
@@ -35,6 +36,7 @@ class Comeso extends Parser
 
             // If feed is known and enabled, validate data and save report
             if ($this->isKnownFeed() && $this->isEnabledFeed()) {
+
                 // To get some more consitency, remove "\r" from the report.
                 $this->arfMail['report'] = str_replace("\r", "", $this->arfMail['report']);
 
@@ -58,11 +60,11 @@ class Comeso extends Parser
                     $incident = new Incident();
                     $incident->source      = config("{$this->configBase}.parser.name");
                     $incident->source_id   = false;
-                    $incident->ip          = $report['Source-IP'];
+                    $incident->ip          = $report['IP'];
                     $incident->domain      = false;
                     $incident->class       = config("{$this->configBase}.feeds.{$this->feedName}.class");
                     $incident->type        = config("{$this->configBase}.feeds.{$this->feedName}.type");
-                    $incident->timestamp   = strtotime($report['Arrival-Date']);
+                    $incident->timestamp   = strtotime($report['Received-Date']);
                     $incident->information = json_encode($report);
 
                     $this->incidents[] = $incident;
