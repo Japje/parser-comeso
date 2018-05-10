@@ -1,0 +1,26 @@
+{
+    "name": "abuseio/parser-comeso",
+    "description": "Parser addon for handling notifications from comeso",
+    "version": "1.0.0",
+    "keywords": ["laravel", "abuseio", "parser", "comeso"],
+    "homepage": "http://abuse.io",
+    "type": "library",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Jasper Wonnink",
+            "email": "abusio@japje.nl",
+            "homepage": "http://www.japje.nl",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "abuseio/parser-common": "1.1.* || dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "AbuseIO\\Parser\\Comeso\\": "src/"
+        }
+    }
+}
