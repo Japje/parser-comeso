@@ -73,6 +73,7 @@ class Comeso extends Parser
             }
         }
 
+        Log::info('japje : ' . json_encode($this->incidents);
         return $this->success();
     }
 }
