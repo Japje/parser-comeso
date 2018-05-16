@@ -1,0 +1,103 @@
+Delivered-To: abuse@isp.tld
+Received: by 10.107.3.101 with SMTP id 98csp4161662iod;
+        Tue, 8 May 2018 03:02:14 -0700 (PDT)
+X-Google-Smtp-Source: AB8JxZq1NPAwA8Ygl3Mwt+egmDCp6G2TMHFugcvWIoklvFw3A8UHriu1Ln7CDInw2nY/inImmR2i
+X-Received: by 2002:a63:5f05:: with SMTP id t5-v6mr31490200pgb.165.1525773734191;
+        Tue, 08 May 2018 03:02:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1525773734; cv=none;
+        d=google.com; s=arc-20160816;
+        b=E15x49mT3YfI2LQww5KIbx8eO8yqZdfzKMw2loPHCmN/zcmIes8thPMcLGrXG5Six4
+         xNQ3xUp6QZpoBQpr6H8MTF2D9Hphx53H7QZoAfxLb8pfw/1bjHJhLgTxXz/Xxwg9TNnG
+         Neiz0UXYXLoGt1l7UH63s7gizuDON+h2Pl2jFenqYWLwQIzbHKTRTrcsihoRRh1NO8/w
+         9qMBbyjvpcRyjVEFhnQmV1RuXVjPltnpIMuHd7Td+6pesnEDahnP+3lAsW0hoLGTMuRZ
+         HgDHUL3wZX9vqrdgeViu53BgoL8xYQgxXurXfGZRYjo9bNQJob7qDKje7JhhCnIYebKo
+         iRSA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:message-id:to:from:subject:mime-version:dkim-signature
+         :arc-authentication-results;
+        bh=BgatK8roHjmOGhqYpzNrqRNRQsmtwpfh48HIufEUZsY=;
+        b=0iFZZPq64EV6HyjSXRETbHAZyW5no5fqGsodrCQbgO9F3aiM6e26HJnwQO0bGDG1oz
+         50l1t5G059FpeXyz5VthFCTdaPZR9M2TPRkmloXqrDVVATpXbaGP5UjO5G7rVD4DHiZ0
+         YG2v9EUyXTBCBWeLLC1e0ct60WiWJTJjFfOjB6rataTYtSUEt2bTnCi8FXUWaDJ+JrJ1
+         JA5+Yti2prldI7TIaeHPFWI3wn9X2hW6Eo4OsPy8NYWeF2BXsxw5Nioq+SCvd+QauN6Z
+         ZX2PAuyEnlRCQXrVrZo7cw21mMYfSZXDkW7VXALNIAqd3vi2rcIt/wO88yhHQvib1bk0
+         +9uQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@comeso.org header.s=mail header.b=bx0ruw0L;
+       spf=pass (google.com: domain of tracy@comeso.org designates 155.94.181.6 as permitted sender) smtp.mailfrom=tracy@comeso.org
+Return-Path: <tracy@comeso.org>
+Received: from l.out.miocp.com (l.out.miocp.com. [155.94.181.6])
+        by mx.google.com with ESMTP id e16-v6si18897440pgq.322.2018.05.08.03.02.12
+        for <abuse@isp.tld>;
+        Tue, 08 May 2018 03:02:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of tracy@comeso.org designates 155.94.181.6 as permitted sender) client-ip=155.94.181.6;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@comeso.org header.s=mail header.b=bx0ruw0L;
+       spf=pass (google.com: domain of tracy@comeso.org designates 155.94.181.6 as permitted sender) smtp.mailfrom=tracy@comeso.org
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=comeso.org; s=mail; t=1525773730; bh=jd1k4IFcIOf0GUeqc0FFKgTWyAAepDF8bL5O+jSKoNY=; h=Subject:From:To:Date:From; b=bx0ruw0L5swKJwGHXB2cx0oSf0VbwJbD35B1NpZ1KP+rkeK//SI9iHXbdaB0I6Fx1
+	 x0k5r6F8HzoN9SnF0OVPg0bUKDzVnh32M6tyC17vJJTtWoi0S6/EtCq9KiHZTcpd6J
+	 XGY04B79jpdWqLU8q4J4mP/BWZ0XRsk6Z48hDPalpj+OS0jn/SUgEht2Eu5XPGaION
+	 Nqq3sVP/Tno46Yrf3VpwFKI9dXOUZ3dNq7vEn9nbKEYg2iA4uBX7SIZFM3rRv3MelV
+	 HEpR30q1Ce+jxkCNR4sUjGBl5I4o1hswR+G2ZGXJNelQa1eRO+bzs9vfCC1hV0zKJo
+	 uUnDVfq0zvL7GYDkT8Z6mCNKKDsFrl5Y2EdGWNkbIb91nBy9pBRi21LxAs5TDfbUjV
+	 xnE8t9zHWTRNVvCRx7sognDKg/whGc3GYeMiZfqHgV/0dIV96+3PMgP6cKGFrR3PCd
+	 M40OaQ5g5K3lMl3MvKl+T2C+fJWbaS+nEhs1hfqCplNMd5kumQgDO/okgw1e8rrm1M
+	 JpMqPsFZcZ/IDWEg1oh54rAa9i/4393/wCAKWVgnfcpN+f7pzTRBziQsykGSKvRMdV
+	 sX+CkodGPeUP8ckE4lAgF9qbP36RqqCEpd4RNUnuYXYAReX2DgYiok7kw9BITWDxxn
+	 j2OVKNxi7eXFW3BUx5hQ+jLY=
+Mime-Version: 1.0
+Subject: Notice of copyright infringement (gonads-and-some-strife.com)
+X-Queue-Attempt: %
+From: tracy@comeso.org
+To: abuse@isp.tld
+Message-Id: <20180508100209.29789.77006@comeso.org>
+Date: Tue, 08 May 2018 10:02:09 -0000
+Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg="sha-256"; boundary="----E9DE1B0F0ABBCFEB0D1B04970A2F2548"
+
+------E9DE1B0F0ABBCFEB0D1B04970A2F2548
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+Dear abuse team,
+
+This is a notification of copyright infringement.
+
+IP: 10.120.13.37
+
+I have a good faith belief that use of the copyrighted materials described below as allegedly infringing is not authorized by the copyright owner, its agent, or the law.
+I swear, under penalty of perjury, that the information in the notification is accurate and that I am the copyright owner or am authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.
+
+We found cases of copyright infringements on the pages below:
+
+Original Work: Dragon Ball Super (http://www.toei-anim.co.jp/tv/dragon_s/)
+URLs:
+http://www.gonads-and-some-strife.com/dragon-ball-super-latino-mega/
+
+I ask you to take down this content within 48 hours and I would be grateful if you could send me a short message when you have accomplished the deletion.
+
+-- 
+Kind regards
+
+Tracy Brown
+
+
+comeso GmbH
+CEO: Jan Wilkens
+Ottobrunner Str. 28, 82008 Unterhaching, Germany
+
+Telefon +49 (0)89 / 215 411 33
+Fax +49 (0)89 / 999 502 97
+
+E-Mail: tracy@comeso.org
+Web: www.comeso.org
+
+HRB: HRB 233818 Muenchen
+USt-ID.-Nr.: DE300564271
+
+------E9DE1B0F0ABBCFEB0D1B04970A2F2548
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="smime.p7s"
+
+
+------E9DE1B0F0ABBCFEB0D1B04970A2F2548--

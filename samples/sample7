@@ -1,0 +1,131 @@
+Delivered-To: abuse@isp.tld
+Received: by 10.107.3.101 with SMTP id 98csp4895327iod;
+        Tue, 8 May 2018 15:13:48 -0700 (PDT)
+X-Google-Smtp-Source: AB8JxZrg3Zgm4K82HP0Tzj8AaEVTiiYOmmqCxb7KAmaJ9eb3DeE86+YLiuBOkNUue5vbSxLlFRG6
+X-Received: by 2002:a24:4449:: with SMTP id o70-v6mr7774456ita.107.1525817628906;
+        Tue, 08 May 2018 15:13:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1525817628; cv=none;
+        d=google.com; s=arc-20160816;
+        b=GbiVD4Uy6iEeYN4Ux8pNKJPDxsS3pbApQr2d1CMTjc9jR2tM53Yhm1ZH04Q7ZLGTdl
+         G4i81ADEpZvrgi6+Fl18xyE1DeXFiv13RqNvjDKtmg6B2Fg3fsuzOb4hv0qUEvGLhqtr
+         El32jJpFGmP4bVuLlrrCQn8MfAxKRe7wY7qgj0hdy/KxJ5MBqVQL9q0QvH2/vPbTOxRn
+         N0sEx85N0NkPiWr2olyRg0AZuY+PxLzFUNjt8C5ciTIAUzUQJiGm1xXZkQhyw+0wXcGS
+         qg+YDtbBSixZ51/McSyr07mPyKfs0xobMhrorVfbj7a0UOAGeQXS6Y1W3TYs1jnLzYtc
+         AEMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:message-id:to:from:subject:mime-version:dkim-signature
+         :arc-authentication-results;
+        bh=RemwZLYv4RcAeBoii8bHjWg4D2VWQUBAJYcyIG/TZ60=;
+        b=zUcyZ7nJt3lKfh2Gif/C6lC99mrVjWOBSI4GyQ3xvKYZ6wTMIZfEjPrLUDBlE3Nz4l
+         Mm9ZgsJZmwjVQU3imE91L4Xy6713eec9CezvPH4sQVvsXLe9mXwaAFfz7Kd9vhLyqlUr
+         i+nyM+ETZA9Gf0m0wyH72+h+1UasK6rfs/utMfziduoXAIupZ+xsJo5r+OKbYEPrEiAP
+         giWj+8b0AEOaipHVCyie7uf94bi2rgMkclhhr/kIJiK0DBoC/75ewi53uLQG8GHguklP
+         2Zy/nGIvxZqCIVaRthqao55xbRPQi7GxhrIF26hxCzLHmoDjZgUk2Aw6J79hfwEqS+pm
+         B8wQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@comeso.org header.s=mail header.b=kjn2ySuF;
+       spf=pass (google.com: domain of tracy@comeso.org designates 192.227.175.142 as permitted sender) smtp.mailfrom=tracy@comeso.org
+Return-Path: <tracy@comeso.org>
+Received: from f.out.miocp.com (f.out.miocp.com. [192.227.175.142])
+        by mx.google.com with ESMTP id a124-v6si10791374itg.58.2018.05.08.15.13.48
+        for <abuse@isp.tld>;
+        Tue, 08 May 2018 15:13:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of tracy@comeso.org designates 192.227.175.142 as permitted sender) client-ip=192.227.175.142;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@comeso.org header.s=mail header.b=kjn2ySuF;
+       spf=pass (google.com: domain of tracy@comeso.org designates 192.227.175.142 as permitted sender) smtp.mailfrom=tracy@comeso.org
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=comeso.org; s=mail; t=1525817626; bh=ebVRhGiyC3gOwlDZmFevoEpG8cPzql1vEuPhCjT+w4s=; h=Subject:From:To:Date:From; b=kjn2ySuFmsKukDp5tY3XOwYEA4iW2h+hEX88JR43rrKNRl1jLR5bLZ6E8AbM5p+/T
+	 1OyTCW1tvenaOd46L5q1Q3NAhxgfzn6jSZJmlZ3EsbN7SB/CxyjL0kThKOP9187u4p
+	 VTMjwDhjRxzaaXQ6blwUfv/ItdgiHgiLYfUXn8tw+E7RyAwFpfKTJfRORhLduHglB6
+	 u6R8eoTgIKF8tqDXMrXtHzaEdJpHmVXJgVy2WS+uTbBIWWixKnsuPtRiU+Or5xUZfE
+	 a4NgQGqIwb5yBWRlJNTtfvFCJIPpi+SOu6yNcTfRiXulUULXevGc7PVBijrEd741wL
+	 tPw+QRuCXURVGEo77+4vgeZKETK/QGekgefNTuSBcpMFEHw01gr7fNEw2/p6uJHLsx
+	 tsKGt04rlPV8c0zEOQCXp1bMna3ndWJZMh3gMbIge+WsRgO9UUzP6NnT+c5v5EVbMz
+	 uRfju+ghiK+L+u4Pq9WWlMPNwbXcVCHKVibNZXG2EES+HQOt/KBpRxDqIwJASSqC9G
+	 6OuNBOf8welSQUk4iVGg7e+dYLNPc0p7elG/QPQUVJ28kyVeTb4scea99FI4uLxTy4
+	 FQLFVRsR5Tr18abcDf9nV0WNf9XgizcMso3wiNEYWYmxbJqS4BYTDg4O3NvsWAhRhD
+	 oS8ZqUzrdYf/AiOue+MCLXRc=
+Mime-Version: 1.0
+Subject: Notice of copyright infringement (nee-jij-bent-een-domeinnaam.com)
+X-Queue-Attempt: %
+From: tracy@comeso.org
+To: abuse@isp.tld
+Message-Id: <20180508221346.23839.46611@comeso.org>
+Date: Tue, 08 May 2018 22:13:46 -0000
+Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg="sha-256"; boundary="----58C2046595D2BCD098C406865DB678DD"
+
+------58C2046595D2BCD098C406865DB678DD
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+Dear abuse team,
+
+This is a notification of copyright infringement.
+
+IP: 192.168.73.31
+
+I have a good faith belief that use of the copyrighted materials described below as allegedly infringing is not authorized by the copyright owner, its agent, or the law.
+I swear, under penalty of perjury, that the information in the notification is accurate and that I am the copyright owner or am authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.
+
+We found cases of copyright infringements on the pages below:
+
+Original Work: Descendants of The Sun (http://www.kbs.co.kr/drama/sun/)
+URLs:
+http://nee-jij-bent-een-domeinnaam.com/watch/9970-descendants-of-the-sun/
+http://nee-jij-bent-een-domeinnaam.com/watch/9963-descendants-of-the-sun/
+http://nee-jij-bent-een-domeinnaam.com/watch/9973-descendants-of-the-sun/
+http://nee-jij-bent-een-domeinnaam.com/watch/9966-descendants-of-the-sun/
+http://nee-jij-bent-een-domeinnaam.com/watch/9960-descendants-of-the-sun/
+http://nee-jij-bent-een-domeinnaam.com/watch/9964-descendants-of-the-sun/
+http://nee-jij-bent-een-domeinnaam.com/watch/9968-descendants-of-the-sun/
+http://nee-jij-bent-een-domeinnaam.com/watch/9965-descendants-of-the-sun/
+http://nee-jij-bent-een-domeinnaam.com/watch/9961-descendants-of-the-sun/
+http://nee-jij-bent-een-domeinnaam.com/watch/9975-descendants-of-the-sun/
+
+Original Work: I'm Not a Robot (http://www.imbc.com/broad/tv/drama/robot/)
+URLs:
+http://nee-jij-bent-een-domeinnaam.com/watch/10513-i-am-not-robot/
+http://nee-jij-bent-een-domeinnaam.com/watch/10520-i-am-not-robot/
+http://nee-jij-bent-een-domeinnaam.com/watch/10519-i-am-not-robot/
+http://nee-jij-bent-een-domeinnaam.com/watch/10518-i-am-not-robot/
+http://nee-jij-bent-een-domeinnaam.com/watch/10511-i-am-not-robot/
+http://nee-jij-bent-een-domeinnaam.com/watch/10514-i-am-not-robot/
+http://nee-jij-bent-een-domeinnaam.com/watch/10512-i-am-not-robot/
+http://nee-jij-bent-een-domeinnaam.com/watch/10517-i-am-not-robot/
+http://nee-jij-bent-een-domeinnaam.com/watch/10515-i-am-not-robot/
+http://nee-jij-bent-een-domeinnaam.com/watch/10516-i-am-not-robot/
+
+Original Work: Radio Romance (http://smart.kbs.co.kr/tv/drama/radioromance/)
+URLs:
+http://nee-jij-bent-een-domeinnaam.com/watch/10931-radio-romance/
+http://nee-jij-bent-een-domeinnaam.com/watch/10932-radio-romance/
+http://nee-jij-bent-een-domeinnaam.com/watch/10933-radio-romance/
+
+I ask you to take down this content within 48 hours and I would be grateful if you could send me a short message when you have accomplished the deletion.
+
+-- 
+Kind regards
+
+Tracy Brown
+
+
+comeso GmbH
+CEO: Jan Wilkens
+Ottobrunner Str. 28, 82008 Unterhaching, Germany
+
+Telefon +49 (0)89 / 215 411 33
+Fax +49 (0)89 / 999 502 97
+
+E-Mail: tracy@comeso.org
+Web: www.comeso.org
+
+HRB: HRB 233818 Muenchen
+USt-ID.-Nr.: DE300564271
+
+------58C2046595D2BCD098C406865DB678DD
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="smime.p7s"
+
+
+------58C2046595D2BCD098C406865DB678DD--

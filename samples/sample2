@@ -1,0 +1,117 @@
+Delivered-To: abuse@isp.tld
+Received: by 10.107.3.101 with SMTP id 98csp2940505iod;
+        Mon, 7 May 2018 03:21:22 -0700 (PDT)
+X-Google-Smtp-Source: AB8JxZoE8vronf0o+/Or46kD4F4UyZFW8sCxv8jeuVqZ0yh+HIJOp3JvBfYTm0UXaqQ/dF1NPvwS
+X-Received: by 2002:a50:b119:: with SMTP id k25-v6mr50102457edd.217.1525688482174;
+        Mon, 07 May 2018 03:21:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1525688482; cv=none;
+        d=google.com; s=arc-20160816;
+        b=MiEZl3j6Fs4Aba9QGlcEV4GjUQ1jhFTAZobNLCfWSCW1+HSlHtt23M2kLiVnFCwSMb
+         NM3QVDaebQ2E4b1lFY4zL8a2PIG42rYGMPs+sjSXshSBLBElpco4crY4upokwzklzE3y
+         7TAtvMPKjZ+4eZn+pO2v+TZKyyTw3oBVGoH6avACFnF54/FE456CqxzRu6xyfQG5FBzN
+         qhRNDpmFeOw3lcRPUDqkVV0dDOlabxf4CeYIRkuDhTnWXAOxt7Q7YCsen/gIH5Qln19V
+         iwt841W5avpb6iR2QJX6JRWLbGYWI5N18FeUgbK+0PLussnMdnX7R2rDCVzQhawktAU+
+         82Cw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:message-id:to:from:subject:mime-version:dkim-signature
+         :arc-authentication-results;
+        bh=q1x7Dt/ALbX6C54/Fqi/9ZDitC0XlyHtcYE6fYzIZiA=;
+        b=H4MYTVJIEdiRzwC4BDjHebox63gUO7MzQwdaDoHa3TJ/TTrkhrRztk8qG32ZpfzuN8
+         vH4RyiKnZH8qHtHYS2f6f4q1vzZqkf/jsSbvpfdUlVoA07Ucnb1Orl+Jx/2JoWJS9Sac
+         GGoiryDzmOS7EE7LbGIFtWU1fhDaqfXs/tHLo50BCvjr0QhYhUS8m7tbaovzz8hgeyiH
+         85EwbQrnTHgeBoUPoQ6W1iOUXi14sLG7VCI+iLJi6l1Usi2V1A6AzckIXkxWsnljJP6F
+         ZVg363F+g00lIii1WE0SwMFB68fKvwTRMGnhQ//Lonj5IDwuoRNmJ56QzP3xuAh1KjvQ
+         xCCg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@comeso.org header.s=mail header.b=HN6RhPdX;
+       spf=pass (google.com: domain of tracy@comeso.org designates 2a00:d880:3:1::6bf:c4db as permitted sender) smtp.mailfrom=tracy@comeso.org
+Return-Path: <tracy@comeso.org>
+Received: from n.out.miocp.com (n.out.miocp.com. [2a00:d880:3:1::6bf:c4db])
+        by mx.google.com with ESMTP id m32-v6si266290ede.182.2018.05.07.03.21.21
+        for <abuse@isp.tld>;
+        Mon, 07 May 2018 03:21:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of tracy@comeso.org designates 2a00:d880:3:1::6bf:c4db as permitted sender) client-ip=2a00:d880:3:1::6bf:c4db;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@comeso.org header.s=mail header.b=HN6RhPdX;
+       spf=pass (google.com: domain of tracy@comeso.org designates 2a00:d880:3:1::6bf:c4db as permitted sender) smtp.mailfrom=tracy@comeso.org
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=comeso.org; s=mail; t=1525688481; bh=V23klr3P5Ud90an9O+TZSF0l6gbMO9rdfjIo1R8ZWMc=; h=Subject:From:To:Date:From; b=HN6RhPdXYoadWNwJoJep8Sd88q9Im6Vf7rOYTE0HK/ScTJuzwQvWM6NAYNqRU+5+3
+	 hSgEsjLzHjYujzpl0OKHPp251qMUfGa+pfu9hiPPJK6NLuh7UlyOqWW1CSX+Wqe1nJ
+	 nKbuqvByzxiA+bSjTJZ5Ixtd8QJaMdn87NYAPEAldqlmBb/ph2Lm+eEglaEMu/RjnT
+	 e9RmNGQwBURC19Y9hQ/8Ck8V+rL9fKAvLitYojw+hYKQybkUOfzNagAA4Zygs3eRi1
+	 7m6lds6DPySRmTXYQIHiIFss0TeIiLUCbGpk3UOG3GsIdU9bFxp86UzGWR619bpjpN
+	 fn+T3vf8a7vSfEysQ2Pfj0EHH6W4TY/LGSihx96rpVWOOmjJJ3o07qkQVCEHF4fe2v
+	 T7HVmwYvliSTssYZCDaGF2KNNLKYx4e8k3/aLjdNvT5IUo8VibKYCDz5h2Q3Y/Z9tI
+	 hcUi3pWQACktsXEPEz0vM/5oHBkGVwLgWzETG+OMpRUiOTVkMrU5y3ZnzBZ5Ur12py
+	 HOn7kPlce6ry3xRL/UCvuoSUNricPYLkqrxrs1xzT69KeX8xk4Ua/4QGp7Lx/VCJWF
+	 +D9CneTYauYonqLswOdNNmc8Bq3fa8JCGesmgkjFHIesZgwh3OS8XuVtvu4Ry/+/EZ
+	 B1/l7FSrXK2soJZK88IN1Djc=
+Mime-Version: 1.0
+Subject: Notice of copyright infringement (stop-being-so-naughty-and-use-netflix.tld)
+X-Queue-Attempt: %
+From: tracy@comeso.org
+To: abuse@isp.tld
+Message-Id: <20180507102120.16382.47063@comeso.org>
+Date: Mon, 07 May 2018 10:21:20 -0000
+Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg="sha-256"; boundary="----CF206EB18E8E03D02DDA858962A69EA4"
+
+------CF206EB18E8E03D02DDA858962A69EA4
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+Dear abuse team,
+
+This is a notification of copyright infringement.
+
+IP: 192.168.13.37
+
+I have a good faith belief that use of the copyrighted materials described below as allegedly infringing is not authorized by the copyright owner, its agent, or the law.
+I swear, under penalty of perjury, that the information in the notification is accurate and that I am the copyright owner or am authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.
+
+We found cases of copyright infringements on the pages below:
+
+Original Work: Meitantei Conan (http://www.ytv.co.jp/conan/index.html)
+URLs:
+http://stop-being-so-naughty-and-use-netflix.tld/watch/7e8688-detective-conan-2004-season-13.1WEMIm
+http://stop-being-so-naughty-and-use-netflix.tld/watch/7e85fb-detective-conan-2008-season-17.mfvxCx
+http://stop-being-so-naughty-and-use-netflix.tld/watch/7e8604-detective-conan-2012-season-21.fmB8NU
+http://stop-being-so-naughty-and-use-netflix.tld/watch/7e869f-detective-conan-1999-season-6.H1IUDR
+http://stop-being-so-naughty-and-use-netflix.tld/watch/7e85f6-detective-conan-2013-season-22.3masgz
+http://stop-being-so-naughty-and-use-netflix.tld/watch/7e86a5-detective-conan-1997-season-3.LDvb33
+http://stop-being-so-naughty-and-use-netflix.tld/watch/7e8607-detective-conan-2007-season-16.Gvx0YA
+http://stop-being-so-naughty-and-use-netflix.tld/watch/7e86a3-detective-conan-1996-season-1.2pDP60
+http://stop-being-so-naughty-and-use-netflix.tld/watch/7e86ab-detective-conan-1996-season-2.gk2sF2
+http://stop-being-so-naughty-and-use-netflix.tld/watch/7e869e-detective-conan-1998-season-5.mATq35
+http://stop-being-so-naughty-and-use-netflix.tld/watch/7e869a-detective-conan-2001-season-9.gum8a5
+
+Original Work: Running Man (http://program.sbs.co.kr/builder/programMainList.do?pgm_id=00000330171)
+URLs:
+http://stop-being-so-naughty-and-use-netflix.tld/watch/80289a-running-man-2010-season-1.9aVCoT
+
+I ask you to take down this content within 48 hours and I would be grateful if you could send me a short message when you have accomplished the deletion.
+
+-- 
+Kind regards
+
+Tracy Brown
+
+
+comeso GmbH
+CEO: Jan Wilkens
+Ottobrunner Str. 28, 82008 Unterhaching, Germany
+
+Telefon +49 (0)89 / 215 411 33
+Fax +49 (0)89 / 999 502 97
+
+E-Mail: tracy@comeso.org
+Web: www.comeso.org
+
+HRB: HRB 233818 Muenchen
+USt-ID.-Nr.: DE300564271
+
+------CF206EB18E8E03D02DDA858962A69EA4
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="smime.p7s"
+
+
+------CF206EB18E8E03D02DDA858962A69EA4--
